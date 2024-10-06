@@ -1,7 +1,12 @@
+import Abhi from "./abhi"
 function App() {
  
   return (
-    <h1>abhish4k jadh4v</h1>
+    <>
+    <Chai/>
+    <h1>chai aur react</h1>
+    <p>test paragraph</p>
+    </>
   )
 }
 
