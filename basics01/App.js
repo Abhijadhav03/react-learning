@@ -7,6 +7,8 @@
 // Manipulate the HTML DOM using React
 
 // Create nested React Elements
+import React from 'react';
+import ReactDOM from 'react-dom/client'
 const heading = React.createElement(
     "h1",
     {
@@ -16,22 +18,28 @@ const heading = React.createElement(
       },
       className:"title"
     },
-    "heading"
+    "THIS IS NAMASTE REACT"
   );
   const heading1 = React.createElement(
     "h1",
     {
       id: "title",
     },
-    "heading1"
+    "ABHISHEK JADHAV"
   );
-  
+  const heading2 = React.createElement(
+    "h1",
+    {
+      id: "title",
+    },
+    "ABHISHEK JADHAV"
+  );
   const container = React.createElement(
     "div",
     {
       id: "container",
     },
-    [heading, heading1]
+    [heading, heading1, heading2]
   );
   
   // create root using createRoot
