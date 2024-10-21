@@ -1,48 +1,41 @@
-// Manipulate the HTML DOM using Javscript
-// const heading = document.createElement("h1");
-// heading.innerHTML = "Namaste Everyone";
-// const root = document.getElementById("root");
-// root.appendChild(heading);
-
-// Manipulate the HTML DOM using React
-
-// Create nested React Elements
 import React from 'react';
 import ReactDOM from 'react-dom/client'
-const heading = React.createElement(
-    "h1",
-    {
-      id: "title",
-      style: {
-        background:"red",
-      },
-      className:"title"
-    },
-    "THIS IS NAMASTE REACT"
-  );
-  const heading1 = React.createElement(
-    "h1",
-    {
-      id: "title",
-    },
-    "ABHISHEK JADHAV"
-  );
-  const heading2 = React.createElement(
-    "h1",
-    {
-      id: "title",
-    },
-    "ABHISHEK JADHAV"
-  );
-  const container = React.createElement(
-    "div",
-    {
-      id: "container",
-    },
-    [heading, heading1, heading2]
-  );
-  
-  // create root using createRoot
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  // passing react element inside root
-  root.render(container);
+
+//react.createelement => React Element => js object => HTMLElement(render)
+
+const heading = React.createElement("h1", {id: "heading"}, "abhishek jadhav 🚀")
+console.log(heading);
+
+//JSX - is not html in js ,/ html/xml like Syntax ,React -PARCEL- Babel
+//React  jsx => react.createelement =>js object => HTMLElement(render)
+
+const Title =  () => (
+<h1  className='head' tabIndex="1">
+    React using JSX🚀
+    </h1>
+    );
+
+    //react component
+ // class based components-old
+ const fm1 = () => true;
+ const fn = () => {
+    return true;
+ }
+ 
+ //functional components-new
+const number = 10000;
+ const HeadingComponent = () => {
+    return <h1>react functional component </h1>;
+ }
+ //component composition
+ const HeadingComponent2 = () => (
+    <div>
+       <h2> {number +2000}</h2>
+        <Title /> 
+    <h1>react functional component </h1>;
+    </div>
+ );
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+root.render(<HeadingComponent2 />)
+// root.render(jsxHeading); 
