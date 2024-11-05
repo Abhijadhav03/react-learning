@@ -6,6 +6,7 @@
   
   body {
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
   }
   
 .app {
@@ -116,4 +117,26 @@
     color: #777;
     margin-bottom: 5px;
   }
-  
+  .btn-buy{
+    background-color: #3b373e;
+    color: white;
+    width: 200px;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .btn-buy:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .filter-btn{
+    width: 70px;
+    height: 50px;
+    text-wrap: pretty;
+    border-radius: 15px;
+    cursor: pointer;
+  }
