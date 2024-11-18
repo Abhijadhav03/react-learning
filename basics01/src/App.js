@@ -21,6 +21,8 @@ import Body from './components/Body';
 */
 //not using keys (not acccesible) <<<<< index as key <<<<<unique id (best practice)
  const AppLayout = () => {
+    console.log(<body/>);
+    
     return (
         <div className="app">
          <Header/>
