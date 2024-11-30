@@ -2,6 +2,7 @@
   "name": "basics01",
   "version": "1.0.0",
   "description": "this is me learning react",
+  "proxy": "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9352403&lng=77.624532",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
@@ -21,7 +22,9 @@
     "parcel": "^2.12.0",
     "process": "^0.11.10",
     "tailwindcss": "^3.4.14"
+    
   },
+  
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
