@@ -3,6 +3,7 @@ import {resobj} from "../utils/constants";
 import React, { useEffect, useState } from 'react';
 import { CDN_URL } from "../utils/constants";
 import ShimmerCard from "./Shimmer";
+import ShimmerCard from "./Shimmer";
 const initialResobj = [
    
     {
@@ -188,13 +189,9 @@ const initialResobj = [
 ];
 
 const Body = () => {
-     const [restaurants, setRestaurants] = useState([]);
-     const [searchText, setSearchText] = useState("");
-     const [isLoading, setIsLoading] = useState(true);
-     const [originalRestaurants, setOriginalRestaurants] = useState([]);
-     const [isFiltered, setIsFiltered] = useState(false);
-// if no dependency array  => useEffect is called on every render
- // whenever state variables update, react triggers a reconciliation cycle(re-renders the components)
+    const [restaurants, setRestaurants] = useState(initialResobj);
+    const [searchText, setSearchText] = useState("");
+   
     useEffect(() =>{
         console.log("useeffect called");
         fetchData();      
@@ -203,23 +200,10 @@ const Body = () => {
    
    const fetchData = async () => {
     try {
-        const response = await fetch(
-            "https://instafood.onrender.com/api/restaurants?lat=12.9783692&lng=77.6408356"
-        );
-        const json = await response.json();
-
-        const restaurants1 =
-            json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants || [];
-        const restaurants4 =
-            json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants || [];
-        console.log("hello");
-        
-        const combinedRestaurants = [...restaurants1];
-        console.log("hello1");
-        
-       
-        setRestaurants(combinedRestaurants);
-        setOriginalRestaurants(combinedRestaurants);
+      const response = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9352403&lng=77.624532");
+      const json = await response.json();
+      console.log(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants);
+      setRestaurants(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants);
     } catch (error) {
         console.error("Error fetching data:", error);
     } finally {
