@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import {resobj} from "../utils/constants";
 import React, { useEffect, useState } from 'react';
 import { CDN_URL } from "../utils/constants";
+import ShimmerCard from "./Shimmer";
 const initialResobj = [
    
     {
@@ -187,42 +188,71 @@ const initialResobj = [
 ];
 
 const Body = () => {
-    const [restaurants, setRestaurants] = useState(initialResobj);
-    const [searchText, setSearchText] = useState("");
-   
+     const [restaurants, setRestaurants] = useState([]);
+     const [searchText, setSearchText] = useState("");
+     const [isLoading, setIsLoading] = useState(true);
+     const [originalRestaurants, setOriginalRestaurants] = useState([]);
+     const [isFiltered, setIsFiltered] = useState(false);
+// if no dependency array  => useEffect is called on every render
+ // whenever state variables update, react triggers a reconciliation cycle(re-renders the components)
     useEffect(() =>{
         console.log("useeffect called");
         fetchData();      
     }, []);
-   console.log("Body Rendred");
+   console.log("Body Rendered");
    
    const fetchData = async () => {
     try {
-      const response = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9352403&lng=77.624532");
-      const json = await response.json();
-      console.log(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants);
-      setRestaurants(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-    
-  };
-  
-    const filterData = (searchText, restaurants) => {
-        return restaurants.filter((restaurant) =>
-            restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
+        const response = await fetch(
+            "https://instafood.onrender.com/api/restaurants?lat=12.9783692&lng=77.6408356"
         );
-    };
-    
-    const filterTopRated = () => {
-        const filteredRestaurants = restaurants.filter(res => parseFloat(res.info.avgRating) > 4.6);
-        setRestaurants(filteredRestaurants); 
-        console.log(filteredRestaurants);
-    };
-    
+        const json = await response.json();
+
+        const restaurants1 =
+            json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants || [];
+        const restaurants4 =
+            json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants || [];
+        console.log("hello");
+        
+        const combinedRestaurants = [...restaurants1];
+        console.log("hello1");
+        
+       
+        setRestaurants(combinedRestaurants);
+        setOriginalRestaurants(combinedRestaurants);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    } finally {
+        setIsLoading(false);
+    }
+};
+
+const handleSearch = () => {
+    const filteredRestaurants = filterData(searchText, originalRestaurants);
+    setRestaurants(filteredRestaurants);
+    setIsFiltered(false);
+};
+
+const filterData = (searchText, restaurants) => {
+    return restaurants.filter((restaurant) =>
+        restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+};
+
+const toggleTopRated = () => {
+    if (isFiltered) {
+        setRestaurants(originalRestaurants);
+    } else {
+        const filteredRestaurants = originalRestaurants.filter(
+            (res) => parseFloat(res.info.avgRating) > 4.5
+        );
+        setRestaurants(filteredRestaurants);
+    }
+    setIsFiltered(!isFiltered);
+};
     return (
         <div className='body'>
-            <div className='search' >
+            {/* <div className='search' >
             <input
                     type="text"
                     className="search-input"
@@ -245,10 +275,29 @@ const Body = () => {
                 >
                     Search
                 </button>
+            </div> */}
+             <div className="search">
+                
+                <input
+                    type="text"
+                    className="search-input"
+                    placeholder="Search a restaurant you want..."
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleSearch();
+                        }
+                        //console.log("Body Rendered");
+                    }}
+                />
+                <button className="search-btn" onClick={handleSearch}>
+                    Search
+                </button>
             </div>
-            <button className="filter-btn" onClick={filterTopRated}>
-            Top Rated Restaurant
-    </button> 
+            <button className="filter-btn" onClick={toggleTopRated}>
+                {isFiltered ? "Show All Restaurants" : "Top Rated Restaurant"}
+            </button>
             <div className='restaurant-container'> 
                 {/* <RestaurantCard 
                 resData={resobj[0]}
@@ -263,9 +312,11 @@ const Body = () => {
                 {/* <RestaurantCard resData={resobj[1]}/>
                  <RestaurantCard resData={resobj[2]}/>
                    <RestaurantCard resData={resobj[3]}/> */}
-                   {restaurants.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-                ))} </div>
+                   {isLoading
+                    ? Array.from({ length: 9 }).map((_, index) => <ShimmerCard key={index} />)
+                    : restaurants.map((restaurant) => ( 
+                        <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                      ))} </div>
         </div>
     );
 };
