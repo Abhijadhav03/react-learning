@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {LOGO_URL} from "../utils/constants";
 import { useState } from "react";
 const Header = () => {
@@ -10,9 +11,15 @@ const [btnNameReact, setbtnNameReact] = useState("Login");
             </div>
            <div className='nav-items'>
               <ul>
+                <Link to="/">
               <li>Home</li>
-              <li >About us</li>
+              </Link>
+              <Link to="/about">
+              <li>About us</li>
+              </Link >
+              <Link to="/contactus">
               <li>Contact us</li>
+              </Link>
               <li className='cart-logo'><img src='https://cdn.iconscout.com/icon/premium/png-512-thumb/cart-icon-download-in-svg-png-gif-file-formats--shopping-online-trolley-pack-e-commerce-icons-1597724.png?f=webp&w=512'/></li>
               <button
     className="login-btn"

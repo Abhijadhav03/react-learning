@@ -16,16 +16,19 @@ DO NOT TOUCH
 --* - address
 --* -contact
 
-*/
+# */
 
---Two Types of EXPORT/IMPORT
+-Two Types of EXPORT/IMPORT
 
--- - default EXport/IMport
--- export default components
--- import component from "path";
+-default EXport/IMport
+- export default components
+- import component from "path";
 
--- -named Export/import
+- -named Export/import
 
--- export const component;
--- import {component} from "path'
+- export const component;
+- import {component} from "path'
 
+# Routing in  web apps 
+ - client side Routing
+ - server side Routing 
