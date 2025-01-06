@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-import {resobj} from "../utils/constants";
-import React, { useEffect, useState } from 'react';
+import { resobj } from "../utils/constants";
+import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import ShimmerCard from "./Shimmer";
+
 const initialResobj = [
    
     {
@@ -193,7 +194,8 @@ const Body = () => {
      const [isLoading, setIsLoading] = useState(true);
      const [originalRestaurants, setOriginalRestaurants] = useState([]);
      const [isFiltered, setIsFiltered] = useState(false);
-// if no dependency array  => useEffect is called on every render
+// if the dependency array is empty = [] => useefffect is calledd on initial render not again and again
+ // if no dependency array  => useEffect is called on every render
  // whenever state variables update, react triggers a reconciliation cycle(re-renders the components)
     useEffect(() =>{
         console.log("useeffect called");

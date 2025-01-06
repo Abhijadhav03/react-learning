@@ -11,7 +11,7 @@ const [btnNameReact, setbtnNameReact] = useState("Login");
            <div className='nav-items'>
               <ul>
               <li>Home</li>
-              <li>About us</li>
+              <li >About us</li>
               <li>Contact us</li>
               <li className='cart-logo'><img src='https://cdn.iconscout.com/icon/premium/png-512-thumb/cart-icon-download-in-svg-png-gif-file-formats--shopping-online-trolley-pack-e-commerce-icons-1597724.png?f=webp&w=512'/></li>
               <button

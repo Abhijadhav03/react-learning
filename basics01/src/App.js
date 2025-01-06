@@ -1,7 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
-import Header from './components/Header'
+import ReactDOM from 'react-dom/client';
+import Header from './components/Header';
 import Body from './components/Body';
+import Contact from './components/Contact';
+import About from './components/About';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ErrorBoundary from './components/Error'; // Custom ErrorBoundary component
+//import ErrorPage from './components/Errorpage';
 /*
 * Header
 * - Logo
@@ -17,20 +22,35 @@ import Body from './components/Body';
 * - - links
 * - address
 * -contact
-
 */
-//not using keys (not acccesible) <<<<< index as key <<<<<unique id (best practice)
- const AppLayout = () => {
-    console.log(<body/>);
-    
-    return (
-        <div className="app">
-         <Header/>
-         <Body/>
-        </div>
-    )
- }
 
+// Main layout component
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 
+// Application router
+const AppRouter = () => {
+  return (
+    <BrowserRouter>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<AppLayout />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contactus" element={<Contact />} />
+          {/* Catch-all route for unmatched paths */}
+          <Route path="*" element={<h2>Page not found, please try again later</h2>} />
+        </Routes>
+      </ErrorBoundary>
+    </BrowserRouter>
+  );
+};
+
+// Render the application
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(< AppLayout />)
+root.render(<AppRouter />);
