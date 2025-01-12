@@ -269,64 +269,56 @@
 }
 
 
-.about-container {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 20px;
+.about-us-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
   background-color: #f9f9f9;
+}
+
+.about-us-content {
+  max-width: 50%;
+}
+
+.about-us-heading {
+  font-size: 2.5rem;
   color: #333;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
-.about-header {
-  text-align: center;
-  background-color: #7f5af0;
-  color: white;
-  padding: 40px 0;
-}
-
-.about-header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.about-header p {
-  font-size: 18px;
-}
-
-.about-content {
-  padding: 20px;
-}
-
-.about-content section {
-  margin-bottom: 40px;
-}
-
-.about-content h2 {
-  font-size: 28px;
-  color: #7f5af0;
-}
-
-.about-content p {
-  font-size: 16px;
+.about-us-text {
+  font-size: 1.2rem;
+  color: #555;
   line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
 }
 
-.about-content ul {
-  list-style-type: none;
-  padding: 0;
+.about-us-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.about-content li {
-  font-size: 16px;
-  margin: 5px 0;
+@media (max-width: 768px) {
+  .about-us-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-us-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about-us-image img {
+    max-width: 90%;
+  }
 }
 
-.about-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 14px;
-  color: #777;
-}
 /*contact page*/
 .contact-container {
   font-family: 'Arial', sans-serif;
@@ -416,4 +408,26 @@
 
 .contact-footer p {
   margin: 5px 0;
+}
+
+footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+footer a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
 }

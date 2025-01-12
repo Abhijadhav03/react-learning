@@ -34,7 +34,7 @@
 ---
 # Two Types of EXPORT/IMPORT
 
--default EXport/IMport
+- default EXport/IMport
 - export default components
 - import component from "path";
 
