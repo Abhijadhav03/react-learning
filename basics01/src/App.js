@@ -8,6 +8,7 @@ import About from './components/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import ErrorBoundary from './components/Error'; // Custom ErrorBoundary component
 import RestaurantMenu from './components/RestaurantMenu';
+
 //import ErrorPage from './components/Errorpage';
 /*
 * Header

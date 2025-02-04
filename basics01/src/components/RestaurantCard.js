@@ -16,7 +16,7 @@ const RestaurantCard = ({ resData }) => {
         <div className='res-card'>
             <img 
                 className='res-img' 
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${resData.info.cloudinaryImageId}`}
+                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300/${resData.info.cloudinaryImageId}`}
                 alt={resData.info.name}
             />
             <h3>{name}</h3>
@@ -28,4 +28,4 @@ const RestaurantCard = ({ resData }) => {
         </div>
     );
 };
-export default RestaurantCard
+export default RestaurantCard;
