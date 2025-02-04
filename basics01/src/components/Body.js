@@ -3,7 +3,7 @@ import { resobj } from "../utils/constants";
 import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import ShimmerCard from "./Shimmer";
-
+import { Link } from "react-router-dom";
 const initialResobj = [
    
     {
@@ -317,7 +317,9 @@ const toggleTopRated = () => {
                    {isLoading
                     ? Array.from({ length: 9 }).map((_, index) => <ShimmerCard key={index} />)
                     : restaurants.map((restaurant) => ( 
-                        <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                        <Link key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`}>
+                              <RestaurantCard resData={restaurant} />
+                          </Link>
                       ))} </div>
         </div>
     );

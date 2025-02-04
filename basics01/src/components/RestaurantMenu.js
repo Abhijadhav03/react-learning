@@ -1,22 +1,27 @@
 import {useState, useEffect } from "react";
 import ShimmerCard from "./Shimmer";
+import { useParams } from "react-router-dom";
 
 const RestaurantMenu = ()=> {
 
      const [resInfo , setResInfo] = useState(null);
 
-    useEffect(() => { 
-       fetchMenu();
-    },[]);
-    const fetchMenu = async () => {
-       const data = await fetch("https://instafood.onrender.com/api/menu?lat=12.786322446615058&lng=77.70552107871245&restaurantId=15898");
-       // const data = await fetch("https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.786322446615058&lng=77.70552107871245&restaurantId=397214&submitAction=ENTER");
-       const json = await data.json();
-        console.log(json);
-        console.log("helloabhi")
-        setResInfo(json.data);
-        
-    };
+     const {resId} = useParams();
+     useEffect(() => {
+        fetchMenu();
+      }, [resId]); // Added resId as a dependency
+    
+      const fetchMenu = async () => {
+        try {
+            const data = await fetch(`https://instafood.onrender.com/api/menu?lat=12.786322446615058&lng=77.70552107871245&restaurantId=${resId}`);
+
+          const json = await data.json();
+          console.log(json);
+          setResInfo(json.data);
+        } catch (error) {
+          console.error("Error fetching menu:", error);
+        }
+      };
    
     // Safely extract restaurant details
     const restaurantInfo = resInfo?.cards?.[2]?.card?.card?.info || {};
@@ -27,6 +32,7 @@ const RestaurantMenu = ()=> {
     const menuSections =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
+    // if (resInfo == null) return <ShimmerCard />;
   return (
     <div className="menu">
       <h1>{name || "Restaurant Name"}</h1>
@@ -44,11 +50,12 @@ const RestaurantMenu = ()=> {
                 {itemInfo.imageId && (
                   <img
                     className="menu-img"
-                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${itemInfo.imageId}`}
+                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,c_fit/${itemInfo.imageId}`}
                     alt={itemInfo.name}
                   />
                 )}
                 <strong>{itemInfo.name || "Item Name"}</strong>
+                <h2> RS { itemInfo.price/100 || itemInfo.variantsV2.pricingModels[0].price/100}</h2>
                 <p>{itemInfo.description || "No description available"}</p>
                 <button className="add-button">Add</button>
               </li>
