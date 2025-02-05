@@ -24,7 +24,7 @@ const RestaurantCard = ({ resData }) => {
             <h4>✳️{avgRating} stars</h4>
             <h4>{locality}</h4>
             <h4>{costForTwo}</h4>
-            <button className='btn-buy'>Add to Cart</button>
+            <button className='btn-buy'>Menu</button>
         </div>
     );
 };

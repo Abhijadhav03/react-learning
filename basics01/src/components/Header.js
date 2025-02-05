@@ -20,7 +20,9 @@ const [btnNameReact, setbtnNameReact] = useState("Login");
               <Link to="/contactus">
               <li>Contact us</li>
               </Link>
+             <Link to="/cart">
               <li className='cart-logo'><img src='https://cdn.iconscout.com/icon/premium/png-512-thumb/cart-icon-download-in-svg-png-gif-file-formats--shopping-online-trolley-pack-e-commerce-icons-1597724.png?f=webp&w=512'/></li>
+              </Link>
               <button
     className="login-btn"
     onClick={() => {

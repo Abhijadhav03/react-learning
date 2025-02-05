@@ -8,6 +8,7 @@ import About from './components/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import ErrorBoundary from './components/Error'; // Custom ErrorBoundary component
 import RestaurantMenu from './components/RestaurantMenu';
+import ResCart from './components/cart';
 
 //import ErrorPage from './components/Errorpage';
 /*
@@ -51,6 +52,7 @@ const AppRouter = () => {
             <Route path="about" element={<About />} />
             <Route path="contactus" element={<Contact />} />
             <Route path="restaurants/:resId" element={<RestaurantMenu />} />
+            <Route path='cart'element={<ResCart />}/>
           </Route>
           {/* Catch-all route for unmatched paths */}
           <Route path="*" element={<h2>Page not found, please try again later</h2>} />

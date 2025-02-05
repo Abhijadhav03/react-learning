@@ -433,97 +433,95 @@ footer p {
 }
 /*restaurant menu*/
 /* General styles */
+/* General Styles */
 .menu {
   max-width: 900px;
   margin: 40px auto;
-  padding: 20px;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
   font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
-/* Heading styles */
-.menu h1 {
+h1 {
   font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
+  color: #222;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-.menu h2 {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 20px;
+h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
-/* Menu list styling */
-.menu ul {
+/* Menu List */
+.menu-list {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-content: center;
 }
 
-/* Individual menu item card */
-.menu li {
-  background: linear-gradient(135deg, #ffffff, #e2e2e2);
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: #f8f8f8;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-.menu li:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.menu-item:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
 }
 
-/* Item name */
-.menu strong {
-  font-size: 18px;
-  color: #0c0b0b;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* Description */
-.menu p {
-  font-size: 14px;
-  color: #0a0909;
-  opacity: 0.9;
-  margin-bottom: 12px;
-}
-
-/* Food image */
-.menu img {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
+.menu-img {
+  width: 100%;
+  height: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px 12px 0 0;
 }
 
-/* Add button */
-.menu button {
-  padding: 10px 16px;
-  background: #fff;
-  color: #0f0f0e;
+strong {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin: 10px 0 5px 0;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Add Button */
+.add-button {
+  background: #ff6600;
+  color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
-.menu button:hover {
-  background: #7f5af0;
-  color: white;
+.add-button:hover {
+  background: #e65c00;
   transform: scale(1.05);
 }
 a {

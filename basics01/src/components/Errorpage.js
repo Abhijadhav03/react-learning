@@ -10,7 +10,8 @@ const ErrorPage = () => {
       <h1>Oops! Something went wrong.</h1>
       <p>{error?.statusText || "An unexpected error occurred."}</p>
     </div>
-  );
+      
+);
 };
 
 export default ErrorPage;
