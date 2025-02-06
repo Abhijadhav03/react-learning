@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import ErrorBoundary from './components/Error'; // Custom ErrorBoundary component
 import RestaurantMenu from './components/RestaurantMenu';
 import ResCart from './components/cart';
+import user from './components/user';
 
 //import ErrorPage from './components/Errorpage';
 /*

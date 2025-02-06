@@ -529,3 +529,9 @@ a {
   color: inherit;
 }
 
+.user-test{
+  font-weight: 15px;
+  width: 250px;
+  border-color: #007bff;
+  background-color: #7f5af0;
+}
