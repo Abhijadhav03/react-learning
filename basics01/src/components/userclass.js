@@ -11,6 +11,12 @@ class UserClass extends React.Component {
     };  
     }
 
+async componentDidMount(){
+    // console.log("child component did mount ");
+    const data = await fetch("https://api.github.com/users/abhijadhav03");
+    const json = await data.json();
+    console.log(json);
+}
     render() {
 
         const {name , location} = this.props;
@@ -35,3 +41,12 @@ class UserClass extends React.Component {
     }
 }
 export default UserClass;
+
+// -parent constructor
+// - parent render
+// - render 
+// child component did mount
+// child1 constructor 
+// child 2 constructor 
+
+//parent  componentDidMount

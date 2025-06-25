@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import ShimmerCard from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 const initialResobj = [
    
     {
@@ -252,6 +253,11 @@ const toggleTopRated = () => {
     }
     setIsFiltered(!isFiltered);
 };
+
+const onlineStatus = useOnlineStatus();
+
+if(onlineStatus == false )
+    return <h1>looks like you are offline</h1>
     return (
         <div className='body'>
             {/* <div className='search' >

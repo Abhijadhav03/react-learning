@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {LOGO_URL} from "../utils/constants";
 import { useState } from "react";
+import StatusIndicator from "./statusindicator";
 const Header = () => {
 let btnName = "Login";
 const [btnNameReact, setbtnNameReact] = useState("Login");
@@ -30,7 +31,9 @@ const [btnNameReact, setbtnNameReact] = useState("Login");
     }}
 >
     {btnNameReact}
+     
 </button></ul>
+<StatusIndicator />
            </div>
             </div>
     )
