@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {LOGO_URL} from "../utils/constants";
 import { useState } from "react";
-import StatusIndicator from "./statusindicator";
+import StatusIndicator from "./StatusIndicator";
 const Header = () => {
 let btnName = "Login";
 const [btnNameReact, setbtnNameReact] = useState("Login");
