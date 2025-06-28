@@ -55,8 +55,9 @@ const AppLayout = () => {
 // Application router
 const AppRouter = () => {
   return (
-    <CartProvider>
+    
     <BrowserRouter>
+    <CartProvider>
       <ErrorBoundary>
         <Routes>
           {/* Parent route */}
@@ -74,8 +75,9 @@ const AppRouter = () => {
           <Route path="*" element={<h2>Page not found, please try again later</h2>} />
         </Routes>
       </ErrorBoundary>
-    </BrowserRouter>
       </CartProvider>
+    </BrowserRouter>
+     
   );
 };
 

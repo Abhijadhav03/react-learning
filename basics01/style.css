@@ -1,3 +1,9 @@
+/* @import "tailwindcss"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -460,7 +466,7 @@ h2 {
 }
 
 /* Menu List */
-.menu-list {
+/* .menu-list {
   list-style: none;
   padding: 0;
   display: grid;
@@ -479,7 +485,7 @@ h2 {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
-}
+} */
 
 .menu-item:hover {
   transform: translateY(-5px);
@@ -609,4 +615,21 @@ a {
 
 .label {
   color: #333;
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
 }
