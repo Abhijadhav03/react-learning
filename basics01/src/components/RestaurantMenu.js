@@ -4,7 +4,7 @@ import ShimmerCard from "./Shimmer";
 import Cart from "./cart";
 import { useState } from "react";
 import { useCart } from "../context/CartContext"; // ✅ Global Cart Context
-import restaurantcategory from "./restaurantcategory";  
+
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
