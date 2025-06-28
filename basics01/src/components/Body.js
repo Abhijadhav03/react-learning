@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
 import ShimmerCard from "./Shimmer";
 import { motion, AnimatePresence } from "framer-motion";
+import useGeoLocation from "../hooks/useGeoLocation"; // ✅ Custom hook to get user location
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -13,13 +14,20 @@ const Body = () => {
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
 
+  const { location, error: locationError } = useGeoLocation(); // ✅ Use geo location
+
   // if the dependency array is empty = [] => useEffect is called on initial render not again and again
   // if no dependency array  => useEffect is called on every render
   // whenever state variables update, react triggers a reconciliation cycle (re-renders the components)
   useEffect(() => {
     console.log("useEffect called");
-    fetchData();
-  }, []);
+    if (location.lat && location.lng) {
+      fetchData(location.lat, location.lng);
+    } else {
+      // fallback to default location (Bangalore)
+      fetchData(12.786322446615058, 77.70552107871245);
+    }
+  }, [location]);
 
   console.log("Body Rendered");
 
@@ -36,10 +44,10 @@ const Body = () => {
     });
   };
 
-  const fetchData = async () => {
+  const fetchData = async (lat, lng) => {
     try {
       const response = await fetch(
-        "https://instafood.onrender.com/api/restaurants?lat=12.9783692&lng=77.6408356"
+        `https://instafood.onrender.com/api/restaurants?lat=${lat}&lng=${lng}`
       );
       const json = await response.json();
 
@@ -177,6 +185,7 @@ const Body = () => {
 };
 
 export default Body;
+
 
 
 //- monolithic architecture

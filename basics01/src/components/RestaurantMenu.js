@@ -4,7 +4,7 @@ import ShimmerCard from "./Shimmer";
 import Cart from "./cart";
 import { useState } from "react";
 import { useCart } from "../context/CartContext"; // ✅ Global Cart Context
-
+// import restaurantcategory from "./restaurantcategory";  // ❌ Removed because file does not exist
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -146,11 +146,12 @@ const RestaurantMenu = () => {
       })}
 
       {/* ✅ Cart Component using global state */}
-      <Cart cart={cart} removeItem={removeItem} />
+      <Cart cart={cart} removeItem={removeItem} showImages={true} />
     </div>
   );
 };
 
 export default RestaurantMenu;
+
 
 
