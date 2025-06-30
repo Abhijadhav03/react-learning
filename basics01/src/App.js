@@ -43,6 +43,7 @@ const About = lazy(()=> import("./components/About"));
 
 // Main layout component
 const AppLayout = () => {
+ 
   return (
     <div className="app">
    <Header />
@@ -71,7 +72,7 @@ const AppRouter = () => {
             <Route path="restaurants/:resId" element={<RestaurantMenu />} />
             <Route path='cart'element={<ResCart />}/>
           </Route>
-          {/* Catch-all route for unmatched paths */}
+            <Route path='cart' element={<ResCart />}/>
           <Route path="*" element={<h2>Page not found, please try again later</h2>} />
         </Routes>
       </ErrorBoundary>

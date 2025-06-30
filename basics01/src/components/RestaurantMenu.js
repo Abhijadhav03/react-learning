@@ -95,7 +95,7 @@ const RestaurantMenu = () => {
               onClick={() => setOpenCategoryIndex(isOpen ? null : index)}
             >
               <div>
-                <h3 className="text-lg font-medium text-gray-800">{categoryInfo.title || "Category Title"}</h3>
+                <h3 className="text-lg font-medium text-gray-800">{categoryInfo.title || "Category Title"} ({categoryInfo.itemCards.length})</h3>
                 <p className="text-sm text-gray-500">{categoryInfo.description || ""}</p>
               </div>
               <span className="text-xl">{isOpen ? "▲" : "▼"}</span>
@@ -128,7 +128,7 @@ const RestaurantMenu = () => {
                       </div>
 
                       <div className="flex items-center">
-                        {/* ✅ Use global addItem */}
+                        {/*  Use global addItem */}
                         <button
                           onClick={() => addItem(itemInfo)}
                           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"

@@ -14,7 +14,7 @@ const Body = () => {
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
 
-  const { location, error: locationError } = useGeoLocation(); // ✅ Use geo location
+  const { location, error: locationError } = useGeoLocation(); //  Use geo location
 
   // if the dependency array is empty = [] => useEffect is called on initial render not again and again
   // if no dependency array  => useEffect is called on every render
@@ -33,7 +33,7 @@ const Body = () => {
 
   const RestaurantCardWithExtraInfo = withExtraInfo(RestaurantCard);
 
-  // ✅ Function to remove duplicate restaurants based on ID
+  //  Function to remove duplicate restaurants based on ID
   const uniqueById = (arr) => {
     const seen = new Set();
     return arr.filter((item) => {
@@ -91,7 +91,7 @@ const Body = () => {
       setRestaurants(originalRestaurants);
     } else {
       const filteredRestaurants = originalRestaurants.filter(
-        (res) => parseFloat(res.info.avgRating) > 4.5
+        (res) => parseFloat(res.info.avgRating) > 4.1
       );
       setRestaurants(filteredRestaurants);
     }
