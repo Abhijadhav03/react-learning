@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-*/coverage
+coverage/
+lcov.info
+*.lcov
+clover.xml
+coverage-final.json
