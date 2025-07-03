@@ -47,6 +47,10 @@ const RestaurantMenu = () => {
   ); 
 
   console.log(categories);
+const handleAddItem = (item) => {   
+  // Use global addItem function
+  addItem(item);
+};
 
   return (
     <div className="max-w-4xl mx-auto p-4">

@@ -46,3 +46,21 @@
 # Routing in  web apps 
  - client side Routing
  - server side Routing 
+
+# Types of testing (developer)
+- unit testing 
+- integration testing 
+- end to end testing 
+
+# setting up testing 
+- react testing library
+- installed jest
+- installed babel dependencies 
+- configured babel
+- configure parcel config file to disable default babel transpilation
+- Jest - npx jest --init
+- Install jsdom library
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- npm i -D @testing-library/jest-dom
+    

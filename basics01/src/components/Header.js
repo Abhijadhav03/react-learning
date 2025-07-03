@@ -4,13 +4,15 @@ import { useContext, useState } from "react";
 import StatusIndicator from "./StatusIndicator";
 import { motion } from "framer-motion";
 import UserContext from "../context/UserContext"; 
+import { useSelector } from "react-redux";
 
 const Header = () => {
   let btnName = "Login";
   const [btnNameReact, setbtnNameReact] = useState("Login");
   const UserData = useContext(UserContext);
   console.log(UserData);
-  
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
    <div className="header flex justify-between items-center px-5 py-3 shadow-md bg-white">
   {/* Logo Section */}
@@ -48,7 +50,7 @@ const Header = () => {
             src="https://cdn.iconscout.com/icon/premium/png-512-thumb/cart-icon-download-in-svg-png-gif-file-formats--shopping-online-trolley-pack-e-commerce-icons-1597724.png?f=webp&w=512"
             alt="Cart"
             className="w-8 h-8 hover:scale-110 transition"
-          />
+          /><span>{}</span>
         </Link>
       </li>
     </ul>

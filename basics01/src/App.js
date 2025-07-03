@@ -12,6 +12,8 @@ import ResCart from './components/cart';
 import user from './components/user';
 import { CartProvider } from './context/CartContext';
 import { lazy } from 'react';
+import {Provider} from 'react-redux';
+import appStore from './utils/appStore';
 
 
 const About = lazy(()=> import("./components/About"));
@@ -58,6 +60,8 @@ const AppRouter = () => {
   return (
     
     <BrowserRouter>
+    <Provider store={appStore}>
+    {/* CartProvider wraps the entire application to provide cart context */}
     <CartProvider>
       <ErrorBoundary>
         <Routes>
@@ -77,6 +81,7 @@ const AppRouter = () => {
         </Routes>
       </ErrorBoundary>
       </CartProvider>
+      </Provider>
     </BrowserRouter>
      
   );
