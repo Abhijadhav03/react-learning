@@ -3,7 +3,8 @@ import ContactUs from '../Contact';
 import React from 'react';
 import '@testing-library/jest-dom';
 
-test('should render contact us form', () => {
+
+it('should render contact us form', () => {
   render(<ContactUs />);
   const heading = screen.getByRole('heading', { name: /contact us/i });
   expect(heading).toBeInTheDocument();
@@ -28,11 +29,15 @@ test('should render submit button', () => {
     const submitButton = screen.getByRole('button', { name: /submit/i });
     expect(submitButton).toBeInTheDocument();
 });
+test('should submit form with valid inputs', () => {
+  render(<ContactUs />);
+    const nameInput = screen.getByLabelText(/name/i);
+    const emailInput = screen.getByLabelText(/email/i);
+    const messageTextarea = screen.getByLabelText(/message/i);
+    const submitButton = screen.getByRole('button', { name: /submit/i });
+   
+});
 
-
-
-// describe('ContactUs Form', () => {
-//   beforeEach(() => {
 //     render(<ContactUs />);
 //   });
 
