@@ -9,7 +9,7 @@ const RestaurantCard = ({ resData }) => {
   if (!resData?.info) {
     return <div className="res-card">No data available</div>;
   }
-
+console.log("resData", resData);
   const {
     cloudinaryImageId,
     name,
